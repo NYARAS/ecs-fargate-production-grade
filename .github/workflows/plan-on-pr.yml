@@ -1,0 +1,25 @@
+name: Plan / Test On PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint and Validate
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.9
+
+      - name: Run terraform fmt check
+        run: terraform fmt -check -diff
+
+      - name: Run terraform Validate
+        run: terraform validate
