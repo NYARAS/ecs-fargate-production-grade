@@ -52,9 +52,6 @@ jobs:
           terraform plan -input=false -no-color -out=tfplan \
           && terraform show -no-color tfplan
 
-      # Sed is taking all lines that begin with one or more spaces followed by a `+` or `-`.
-      # It stores the amount of spaces in `\1` and the +/- in `\2`.
-      # Then replace that portion of the line with `\2\1` (+/- followed by the number of matched spaces).
       - name: Reformat Plan
         if: steps.plan.outcome == 'success'
         run: |
@@ -86,7 +83,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
           message: |
-            Applying ****:
+            Applying ** staging **:
 
             ```diff
             ${{ env.PLAN }}
@@ -103,7 +100,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
           message: |
-            Plan failed for ****:
+            Plan failed for ** staging **:
 
             ```
             ${{ steps.plan.outputs.stderr }}
@@ -116,7 +113,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
           message: |
-            Apply failed for ****:
+            Apply failed for ** staging **:
 
             ```
             ${{ steps.apply.outputs.stderr }}

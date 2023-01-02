@@ -73,7 +73,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]'
           message: |
-            ## plan
-            ```
+            ## plan for staging
+            ```diff
             ${{ env.PLAN }}
             ```
