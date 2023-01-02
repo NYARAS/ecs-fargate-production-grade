@@ -16,3 +16,11 @@ variable "contact" {
   description = "Email of the contact person responsible for this infrastructure"
   default     = "email@calvineotieno.com"
 }
+
+variable "db_username" {
+  description = "Username for the RDS postgres instance"
+}
+
+variable "db_password" {
+  description = "Password for the RDS postgres instance"
+}
