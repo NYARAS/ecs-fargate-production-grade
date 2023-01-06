@@ -25,6 +25,7 @@ jobs:
     env:
       TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
       TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
+      TF_VAR_django_secret_key: ${{ secrets.DJANGO_SECRET_KEY }}
     runs-on: ubuntu-20.04
 
     steps:
