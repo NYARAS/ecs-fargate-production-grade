@@ -26,17 +26,17 @@ variable "db_password" {
 }
 
 variable "bastion_key_name" {
-  default = "recipe-app-api-devops-bastion"
+  default = "golang-mux-api-devops-bastion"
 }
 
 variable "ecr_image_api" {
   description = "ECR image for API"
-  default     = "167259143853.dkr.ecr.eu-west-1.amazonaws.com/recipe-app-api-devops:latest"
+  default     = "167259143853.dkr.ecr.eu-west-1.amazonaws.com/golang-mux-api:b72c26f"
 }
 
 variable "ecr_image_proxy" {
   description = "ECR image for Proxy"
-  default     = "167259143853.dkr.ecr.eu-west-1.amazonaws.com/recipe-app-api-proxy:latest"
+  default     = "167259143853.dkr.ecr.eu-west-1.amazonaws.com/golang-api-proxy:0f9f76f"
 }
 
 variable "django_secret_key" {

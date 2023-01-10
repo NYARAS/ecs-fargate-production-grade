@@ -5,12 +5,10 @@
         "essential": true,
         "memoryReservation": 256,
         "environment": [
-            {"name": "DJANGO_SECRET_KEY", "value": "${django_secret_key}"},
-            {"name": "DB_HOST", "value": "${db_host}"},
-            {"name": "DB_NAME", "value": "${db_name}"},
-            {"name": "DB_USER", "value": "${db_user}"},
-            {"name": "DB_PASS", "value": "${db_pass}"},
-            {"name": "ALLOWED_HOSTS", "value": "${allowed_hosts}"}
+            {"name": "APP_DB_HOST", "value": "${db_host}"},
+            {"name": "APP_DB_NAME", "value": "${db_name}"},
+            {"name": "APP_DB_USERNAME", "value": "${db_user}"},
+            {"name": "APP_DB_PASSWORD", "value": "${db_pass}"}
         ],
         "logConfiguration": {
             "logDriver": "awslogs",
@@ -22,8 +20,8 @@
         },
         "portMappings": [
             {
-                "containerPort": 9000,
-                "hostPort": 9000
+                "containerPort": 8080,
+                "hostPort": 8080
             }
         ],
         "mountPoints": [
@@ -47,7 +45,7 @@
         "memoryReservation": 256,
         "environment": [
             {"name": "APP_HOST", "value": "127.0.0.1"},
-            {"name": "APP_PORT", "value": "9000"},
+            {"name": "APP_PORT", "value": "8080"},
             {"name": "LISTEN_PORT", "value": "8000"}
         ],
         "logConfiguration": {
