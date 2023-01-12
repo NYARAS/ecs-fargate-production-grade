@@ -39,6 +39,30 @@ variable "ecr_image_proxy" {
   default     = "167259143853.dkr.ecr.eu-west-1.amazonaws.com/golang-api-proxy:0f9f76f"
 }
 
-variable "django_secret_key" {
-  description = "Secret key for Django app"
+
+variable "dns_zone_name" {
+  description = "Domain Name"
+  default     = "calvineotieno.com"
+}
+
+variable "subdomain" {
+  description = "Subdomain per environment"
+  type        = map(string)
+  default = {
+    production = "api"
+    staging    = "api.staging"
+    dev        = "api.dev"
+  }
+}
+
+variable "endpoint" {
+  description = "Endpoint url"
+  type        = string
+  default     = "staging.calvineotieno.com"
+}
+
+variable "domain_name" {
+  description = "Domain name"
+  type        = string
+  default     = "calvineotieno.com"
 }
