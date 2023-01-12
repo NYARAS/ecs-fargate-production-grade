@@ -31,7 +31,7 @@ variable "bastion_key_name" {
 
 variable "ecr_image_api" {
   description = "ECR image for API"
-  default     = "167259143853.dkr.ecr.eu-west-1.amazonaws.com/golang-mux-api:b72c26f"
+  default     = "167259143853.dkr.ecr.eu-west-1.amazonaws.com/golang-mux-api:e6c1d2b"
 }
 
 variable "ecr_image_proxy" {
