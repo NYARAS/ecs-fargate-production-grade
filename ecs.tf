@@ -123,5 +123,6 @@ resource "aws_ecs_service" "api" {
     container_name   = "proxy"
     container_port   = 8000
   }
+  depends_on = [aws_lb_listener.api_https]
 
 }
