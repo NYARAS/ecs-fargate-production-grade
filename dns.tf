@@ -10,11 +10,11 @@ resource "aws_route53_record" "app" {
 
   records = [aws_lb.api.dns_name]
 }
+
 resource "aws_acm_certificate" "cert" {
-  provider                  = aws.us-east-1
-  domain_name               = var.domain_name
-  subject_alternative_names = ["*.${var.domain_name}"]
-  validation_method         = "DNS"
+  provider          = aws.us-east-1
+  domain_name       = aws_route53_record.app.fqdn
+  validation_method = "DNS"
 
   tags = local.common_tags
 
@@ -22,6 +22,7 @@ resource "aws_acm_certificate" "cert" {
     create_before_destroy = true
   }
 }
+
 
 resource "aws_route53_record" "cert_validation" {
   for_each = {
