@@ -55,12 +55,6 @@ variable "subdomain" {
   }
 }
 
-variable "endpoint" {
-  description = "Endpoint url"
-  type        = string
-  default     = "staging.calvineotieno.com"
-}
-
 variable "domain_name" {
   description = "Domain name"
   type        = string

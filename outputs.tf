@@ -1,5 +1,6 @@
 output "db_host" {
-  value = aws_db_instance.main.address
+  description = "Get RDS address"
+  value       = aws_db_instance.main.address
 }
 
 output "bastion_host" {
@@ -8,5 +9,6 @@ output "bastion_host" {
 }
 
 output "api_endpoint" {
-  value = aws_route53_record.app.fqdn
+  description = "Get Route53 DNS name"
+  value       = aws_route53_record.app.fqdn
 }
