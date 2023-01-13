@@ -5,9 +5,8 @@ data "aws_route53_zone" "zone" {
 resource "aws_route53_record" "app" {
   zone_id = data.aws_route53_zone.zone.zone_id
   name    = "${lookup(var.subdomain, terraform.workspace)}.${data.aws_route53_zone.zone.name}"
-  #   name = var.endpoint
-  type = "CNAME"
-  ttl  = "300"
+  type    = "CNAME"
+  ttl     = "300"
 
   records = [aws_lb.api.dns_name]
 }
